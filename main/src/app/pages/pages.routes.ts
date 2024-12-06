@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { StarterComponent } from './starter/starter.component';
+import {FirstPageComponent} from "../components/first-page/first-page.component";
+import {SelectionPageComponent} from "../components/selection-page/selection-page.component";
 
 export const PagesRoutes: Routes = [
   {
@@ -13,4 +15,6 @@ export const PagesRoutes: Routes = [
       ],
     },
   },
+  { path: 'first-page', component: FirstPageComponent },
+  { path: 'selection-page', component: SelectionPageComponent },
 ];
