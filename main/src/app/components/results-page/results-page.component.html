@@ -1,0 +1,12 @@
+<mat-card class="cardWithShadow flex-column">
+  <mat-card-content>
+    <div class="align-items-center flex-row">
+      <div class="resultado-container">
+        <h2>Recomendação de CPU</h2>
+        <p *ngIf="loading">Carregando recomendação...</p>
+        <p *ngIf="!loading && respostaAPI">{{ respostaAPI }}</p>
+        <p *ngIf="!loading && !respostaAPI">Nenhuma recomendação disponível.</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

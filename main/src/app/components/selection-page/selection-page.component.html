@@ -3,7 +3,67 @@
     <mat-card class="cardWithShadow flex-column">
       <mat-card-content>
         <div class="align-items-center flex-row">
-          <p>Olá</p>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h2>Escolha suas preferências</h2>
+
+            <div class="form-group" formGroupName="consumoEnergia">
+              <h3>Consumo de Energia</h3>
+              <label>
+                <input type="radio" formControlName="nivel" value="baixo" />
+                Baixo
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="medio" />
+                Médio
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="alto" />
+                Alto
+              </label>
+            </div>
+
+            <div class="form-group" formGroupName="desempenho">
+              <h3>Desempenho</h3>
+              <label>
+                <input type="radio" formControlName="nivel" value="adesempenho" />
+                Alto Desempenho
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="mdesempenho" />
+                Médio Desempenho
+              </label>
+            </div>
+
+            <div class="form-group" formGroupName="custo">
+              <h3>Custo</h3>
+              <label>
+                <input type="radio" formControlName="nivel" value="acessivel" />
+                CPU acessível
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="altoInvestimento" />
+                CPU de alto investimento
+              </label>
+            </div>
+
+            <div class="form-group" formGroupName="tipoAplicacao">
+              <h3>Tipo de Aplicação</h3>
+              <label>
+                <input type="radio" formControlName="nivel" value="IoT" />
+                IoT
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="jogos" />
+                Jogos
+              </label>
+              <label>
+                <input type="radio" formControlName="nivel" value="inteligenciaArtificial" />
+                Inteligência Artificial
+              </label>
+            </div>
+
+            <button type="submit">Enviar</button>
+          </form>
         </div>
       </mat-card-content>
     </mat-card>
