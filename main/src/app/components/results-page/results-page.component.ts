@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatCard, MatCardContent } from "@angular/material/card";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { OpenAIService } from '../components-services';
 import { NgIf } from "@angular/common";
 
@@ -25,6 +25,7 @@ export class ResultsPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private openAIService: OpenAIService
   ) {}
 
@@ -53,7 +54,8 @@ export class ResultsPageComponent implements OnInit {
     Me mostre a memória cache, tendo sugestão de níveis de cache, como "L1 de 64KB e L2 de 512KB."
     Me mostre a frequência da CPU.
     E me mostre uma justificativa técnica do design, ou seja, uma breve justificativa da escolha da CPU.
-    Lembre-se de fazer com o que o usuário compreenda o modelo da CPU que deve adquirir.`;
+    Lembre-se de fazer com o que o usuário compreenda o modelo da CPU que deve adquirir, e de sempre descrever
+     o modelo do processador, ex: Ryzen 5 5600x, em vez de ser "Ryzen 5".`;
   }
 
   // Envia o prompt para a OpenAI
@@ -71,5 +73,9 @@ export class ResultsPageComponent implements OnInit {
         this.loading = false; // Finaliza o carregamento
       }
     });
+  }
+
+  goBack(){
+    this.router.navigate([`/begin/selection-page`])
   }
 }

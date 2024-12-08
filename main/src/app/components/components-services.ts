@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class OpenAIService {
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
   private apiKey = '';
+
   constructor(private http: HttpClient) {}
 
   getCPURecommendation(prompt: string): Observable<any> {
@@ -17,7 +18,7 @@ export class OpenAIService {
     });
 
     const body = {
-      model: 'gpt-3.5-turbo', // Modelo usado
+      model: 'gpt-4o', // Modelo usado
       messages: [
         { role: 'system', content: 'Você é um assistente técnico especializado em recomendações de CPUs.' },
         { role: 'user', content: prompt }
